@@ -16,7 +16,7 @@ function Home() {
       <div className="">
         <p className="code">{"<Typewriter"}</p>
         <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col items-center">
-          <Typewriter
+          {/* <Typewriter
             onInit={(typewriter) => {
               typewriter
                 .typeString(t("hello"))
@@ -29,7 +29,7 @@ function Home() {
                   setTitle(false);
                 });
             }}
-          />
+          /> */}
         </div>
         <div
           className={`${
