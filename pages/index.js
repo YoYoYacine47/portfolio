@@ -44,7 +44,7 @@ export default function Index() {
 export async function getServerSideProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
+      ...(await serverSideTranslations(locale, ["common"])),
       // Will be passed to the page component as props
     },
   };
