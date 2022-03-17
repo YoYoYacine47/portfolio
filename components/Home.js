@@ -15,27 +15,21 @@ function Home() {
     >
       <div className="">
         <p className="code">{"<Typewriter"}</p>
-        <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col items-center">
-          {/* <Typewriter
+        <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col ">
+          <Typewriter
             onInit={(typewriter) => {
               typewriter
                 .typeString(t("hello"))
-                .start()
                 .typeString("<p></p>")
-                .start()
                 .typeString(t("myName"))
-                .start()
                 .callFunction(() => {
                   setTitle(false);
-                });
+                })
+                .start();
             }}
-          /> */}
+          />
         </div>
-        <div
-          className={`${
-            title && "hidden"
-          } pt-6 text-lg lg:text-3xl font-medium `}
-        >
+        <div className={`pt-6 text-lg lg:text-3xl font-medium`}>
           <p className="">{t("fullstack")}</p>
           <p className="">{t("student")}</p>
         </div>
