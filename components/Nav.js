@@ -24,7 +24,7 @@ export default function Nav() {
   };
 
   return (
-    <div className="sticky top-0 flex bg-gray-300 dark:bg-gray-800 flex-col justify-between items-center p-2 h-screen ">
+    <div className="sticky top-0 flex bg-gray-300 dark:bg-gray-800 flex-col justify-between items-center py-2 lg:p-2 h-screen ">
       <div className="flex flex-col items-center space-y-2">
         <h3 className="font-bold font-mono border-r-2 border-l-2 px-2 rounded-sm border-[#11c8fe]">
           YoYo

@@ -11,12 +11,14 @@ function Home() {
   return (
     <section
       id="home"
-      className="flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-6 px-6 lg:p-20 justify-items-center items-center lg:h-screen"
+      className="flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-6 px-6 lg:p-20 justify-items-center items-center h-screen"
     >
       <div className="">
         <p className="code">{"<Typewriter"}</p>
-        <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col ">
-          <Typewriter
+        <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col">
+          <p className="">{t("hello")}</p>
+          <p className="">{t("myName")}</p>
+          {/* <Typewriter
             onInit={(typewriter) => {
               typewriter
                 .typeString(t("hello"))
@@ -27,7 +29,7 @@ function Home() {
                 })
                 .start();
             }}
-          />
+          /> */}
         </div>
         <div className={`pt-6 text-lg lg:text-3xl font-medium`}>
           <p className="">{t("fullstack")}</p>

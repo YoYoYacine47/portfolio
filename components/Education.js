@@ -1,16 +1,17 @@
 import React from "react";
+import TimeLine from "./TimeLine";
 
 function Education() {
   return (
     <section
       id="education"
-      className="flex justify-center items-center w-full h-screen"
+      className="grid lg:grid-cols-2 items-center justify-items-center w-full h-screen"
     >
-      <div className="font-bold text-7xl text-gray-500">
-        <p className="">NextJs</p>
-        <p className="dark:text-[#11c8fe]">ReactJs</p>
-        <p className="">I18n</p>
-        <p className="dark:text-[#11c8fe]">Tailwind Css</p>
+      <TimeLine />
+      <div className="space-y-3 p-5 font-medium">
+        <p className="">High School: Science</p>
+        <p className="">Bachelor: Network and Information System</p>
+        <p className="">Master: Information System</p>
       </div>
     </section>
   );
