@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import Typewriter from "typewriter-effect";
 
 function Home() {
   const { t } = useTranslation("common");
