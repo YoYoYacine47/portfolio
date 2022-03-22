@@ -26,7 +26,7 @@ function Communication() {
     <section
       ref={ref}
       id="communication"
-      className="flex flex-col  items-center w-full min-h-screen"
+      className="flex flex-col  items-center w-full min-h-screen h-screen"
     >
       <h2 className="text-3xl lg:text-6xl font-bold text-[#11c8fe] p-2 lg:p-8">
         Contact
