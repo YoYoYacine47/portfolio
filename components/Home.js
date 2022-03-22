@@ -24,7 +24,7 @@ function Home() {
     <section
       id="home"
       ref={ref}
-      className="flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-6 px-2 lg:p-20 justify-items-center items-center h-screen"
+      className="flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-6 p-4 lg:p-20 justify-items-center items-center h-screen min-h-[50rem]"
     >
       <div className="">
         <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col items-center">

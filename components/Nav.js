@@ -26,7 +26,7 @@ export default function Nav() {
   const elements = useSelector(selectElements);
 
   return (
-    <div className="sticky top-0 flex bg-gray-300 dark:bg-gray-800 flex-col justify-between items-center py-2 lg:p-2 h-screen ">
+    <div className="sticky top-0 flex bg-gray-300 dark:bg-gray-800 flex-col justify-between items-center py-2  h-screen ">
       <div className="flex flex-col items-center space-y-2">
         <h3 className="font-bold font-mono border-r-2 border-l-2 px-2 rounded-sm border-[#11c8fe]">
           YoYo
@@ -56,7 +56,7 @@ export default function Nav() {
           </Button>
         </ButtonGroup>
       </div>
-      <div className="flex flex-col space-y-2 justify-center items-center dark:text-[#11c8fe]">
+      <div className="flex flex-col space-y-2 justify-center items-center w-full dark:text-[#11c8fe] ">
         <HomeIcon
           onClick={() => elements.homeRef.scrollIntoView()}
           className="icons"

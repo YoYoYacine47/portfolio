@@ -4,5 +4,7 @@
   "about": "About me",
   "aboutContent": "I am ramdane yacine, I have started the coding in my first year at university. the first language was C, I learnd the algorithmic thinking from it. than I learned Java, C++, C#, Php... I do some project using those languages but now I am sticking with javascript for fullstack (ReactJs+nodeJs) and kotlin for Android",
   "hollo": "Hello!!",
-  "myName": "I'm RAMDANE Yacine"
+  "myName": "I'm RAMDANE Yacine",
+  "dialogText": " <p className=/\"mb-2/\">you can interact using Terminal:</p><p className=/\"pl-2/\"><span className=/\"font-bold/\">chmod:<span> change the theme (dark, light)</p><p className=/\"pl-2/\"><span className=/\"font-bold/\">chlang:</span> change the language(ar, en)</p> <p className=/\"pl-2/\"><span className=/\"font-bold/\">cd:</span> navigate between sections(home, skills, education,  portfolio, contact)</p>",
+  "close": "Close"
 }

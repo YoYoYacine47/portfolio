@@ -15,7 +15,7 @@ html {
     @apply cursor-pointer hover:scale-125 hover:opacity-80;
   }
   .progress {
-    @apply lg:w-32 lg:h-32 xl:w-44 xl:h-44 w-20 h-20;
+    @apply lg:w-28 lg:h-28 xl:w-36 xl:h-36 w-20 h-20;
   }
   .input {
     @apply rounded-md p-2 w-full;

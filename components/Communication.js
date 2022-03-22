@@ -26,9 +26,12 @@ function Communication() {
     <section
       ref={ref}
       id="communication"
-      className="flex justify-center items-center w-full h-screen"
+      className="flex flex-col  items-center w-full min-h-screen"
     >
-      <div className="font-bold text-lg">
+      <h2 className="text-3xl lg:text-6xl font-bold text-[#11c8fe] p-2 lg:p-8">
+        Contact
+      </h2>
+      <div className="font-bold text-lg flex items-center h-full">
         <form
           className="flex flex-col space-y-4 w-full max-w-lg "
           method="post"

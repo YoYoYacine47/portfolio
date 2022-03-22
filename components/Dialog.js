@@ -27,12 +27,9 @@ export default function AlertDialog() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"use Terminal to:"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <p className="mb-2">you can interact using Terminal:</p>
             <p className="pl-2">
               <span className="font-bold">chmod:</span> change the theme (dark,
               light)

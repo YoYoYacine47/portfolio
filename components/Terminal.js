@@ -68,7 +68,7 @@ function Terminal() {
         </div>
         <div className="flex flex-grow justify-center">
           <TerminalIcon className="h-5 w-5" />
-          <p>Terminal</p>
+          <p>Terminal Game</p>
         </div>
         <div className="cursor-pointer hover:shadow-md hover:scale-105">
           <Dialog />
