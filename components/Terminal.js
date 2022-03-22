@@ -26,8 +26,7 @@ function Terminal() {
   };
 
   const handleSubmit = () => {
-    console.log({ text });
-    switch (text) {
+    switch (text.toLowerCase()) {
       case "chlang en":
         changeLang("en");
         break;
@@ -59,7 +58,7 @@ function Terminal() {
   };
 
   return (
-    <div dir="ltr" className="font-semibold font-mono border max-w-lg">
+    <div dir="ltr" className="font-semibold font-mono border">
       <div className="bg-[#1f2937] p-1 h-6 flex items-center text-white">
         <div className="flex">
           <XIcon className="h-5 w-5" />

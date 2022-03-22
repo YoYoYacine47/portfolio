@@ -6,6 +6,8 @@ import Typewriter from "typewriter-effect";
 import Terminal from "./Terminal";
 import { useDispatch } from "react-redux";
 import { setHome } from "../app/slices/ScrollSlice";
+import { PhoneIcon, MailIcon } from "@heroicons/react/solid";
+import { Tooltip } from "@mui/material";
 
 function Home() {
   const { t } = useTranslation("common");
@@ -46,8 +48,8 @@ function Home() {
           <p className="">{t("student")}</p>
         </div>
       </div>
-      <div className="">
-        <div className="relative mb-2 w-48 h-48 lg:w-64 lg:h-64">
+      <div className="flex flex-col items-center">
+        <div className="relative mb-2 w-52 h-52 lg:w-72 lg:h-72">
           <Image
             className=" border rounded-lg shadow-lg"
             src="/yoyo.jpg"
@@ -55,6 +57,29 @@ function Home() {
             objectFit="contain"
             alt="image"
           />
+        </div>
+        <div className="font-medium">
+          <Tooltip
+            disableFocusListener
+            disableTouchListener
+            title="Click To Copy"
+          >
+            <p
+              className="flex items-center text-lg cursor-pointer"
+              onClick={() => {
+                navigator.clipboard.writeText("ramdaneyacine31@gmail.com");
+              }}
+            >
+              <MailIcon className="mr-2" height="22" />{" "}
+              ramdaneyacine31@gmail.com
+            </p>
+          </Tooltip>
+          <Tooltip disableFocusListener disableTouchListener title="Call Now">
+            <a href={"tel:+213556075290"} className="text-lg flex items-center">
+              <PhoneIcon height="22" className="mr-2" />
+              +213556075290
+            </a>
+          </Tooltip>
         </div>
       </div>
       <div className=" lg:px-60 lg:py-20 col-span-2 self-stretch justify-self-stretch">
