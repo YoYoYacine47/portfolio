@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { setPortfolio } from "../app/slices/ScrollSlice";
 import Project from "./Project";
 
 function Portfolio() {
+  const dispatch = useDispatch();
+  const ref = useCallback(
+    (ref) => {
+      if (ref !== null) {
+        dispatch(setPortfolio(ref));
+      }
+    },
+    [dispatch]
+  );
   return (
-    <section id="portfolio" className="w-full ">
+    <section id="portfolio" ref={ref} className="w-full ">
       {
         <div className="grid gap-6 p-6 lg:grid-col-2 xl:grid-cols-3 justify-items-center">
           <Project

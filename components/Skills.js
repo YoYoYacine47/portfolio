@@ -1,15 +1,28 @@
-import React from "react";
-import { CircularProgressbar } from "react-circular-progressbar";
+import React, { useCallback } from "react";
 import "react-circular-progressbar/dist/styles.css";
+import { useDispatch } from "react-redux";
+import { setSkills } from "../app/slices/ScrollSlice";
 import ProgressBar from "./ProgressBar";
 
 function Skills() {
+  const dispatch = useDispatch();
+  const ref = useCallback(
+    (ref) => {
+      if (ref !== null) {
+        dispatch(setSkills(ref));
+      }
+    },
+    [dispatch]
+  );
+
   return (
     <section
+      ref={ref}
       id="skills"
+      name="skills"
       className="flex flex-col justify-center space-y-10 lg:grid  grid-cols-3 w-full h-screen p-5"
     >
-      <div className="col-span-2 w-full">
+      <div className="col-span-2">
         <h3 className="place-self-start lg:text-3xl text-lg lg:mb-6 font-bold dark:text-gray-500">
           Programing Languages
         </h3>

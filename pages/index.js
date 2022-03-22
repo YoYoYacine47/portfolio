@@ -18,6 +18,7 @@ export default function Index() {
 
   return (
     <div
+      id="container"
       dir={der}
       className="dark:text-gray-200 dark:bg-gray-900 text-gray-900 bg-gray-200 "
     >
@@ -29,7 +30,7 @@ export default function Index() {
 
       <main className="flex">
         <Nav />
-        <div className="w-full">
+        <div className="">
           <Home />
           <Skills />
           <Education />
@@ -41,7 +42,7 @@ export default function Index() {
   );
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),

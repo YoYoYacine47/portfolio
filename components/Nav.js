@@ -8,9 +8,10 @@ import {
 } from "@heroicons/react/outline";
 import { Instagram, Audiotrack, GitHub } from "@mui/icons-material/";
 import ModeSwitch from "../components/ModeSwitch";
-import { Link, animateScroll as scroll } from "react-scroll";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectElements } from "../app/slices/ScrollSlice";
 
 export default function Nav() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function Nav() {
       locale: lang,
     });
   };
+  const elements = useSelector(selectElements);
 
   return (
     <div className="sticky top-0 flex bg-gray-300 dark:bg-gray-800 flex-col justify-between items-center py-2 lg:p-2 h-screen ">
@@ -55,21 +57,36 @@ export default function Nav() {
         </ButtonGroup>
       </div>
       <div className="flex flex-col space-y-2 justify-center items-center dark:text-[#11c8fe]">
-        <Link title="Home" to="home" smooth={true}>
-          <HomeIcon className="icons" width={28} height={28} />
-        </Link>
-        <Link title="Skills" to="skills" smooth="true">
-          <CodeIcon className="icons" width={28} height={28} />
-        </Link>
-        <Link title="Education" to="education" smooth="true">
-          <AcademicCapIcon className="icons" width={28} height={28} />
-        </Link>
-        <Link title="Portfolio" to="portfolio" smooth="true">
-          <PresentationChartBarIcon className="icons" width={28} height={28} />
-        </Link>
-        <Link title="Communication" to="communication" smooth="true">
-          <AnnotationIcon className="icons" width={28} height={28} />
-        </Link>
+        <HomeIcon
+          onClick={() => elements.homeRef.scrollIntoView()}
+          className="icons"
+          width={28}
+          height={28}
+        />
+        <CodeIcon
+          onClick={() => elements.skillsRef.scrollIntoView()}
+          className="icons"
+          width={28}
+          height={28}
+        />
+        <AcademicCapIcon
+          onClick={() => elements.educationRef.scrollIntoView()}
+          className="icons"
+          width={28}
+          height={28}
+        />
+        <PresentationChartBarIcon
+          onClick={() => elements.portfolioRef.scrollIntoView()}
+          className="icons"
+          width={28}
+          height={28}
+        />
+        <AnnotationIcon
+          onClick={() => elements.contactRef.scrollIntoView()}
+          className="icons"
+          width={28}
+          height={28}
+        />
       </div>
       <div className="flex flex-col items-center space-y-2 dark:text-[#11c8fe]">
         <a

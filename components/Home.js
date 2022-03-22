@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
+import Typewriter from "typewriter-effect";
+import Terminal from "./Terminal";
+import { useDispatch } from "react-redux";
+import { setHome } from "../app/slices/ScrollSlice";
 
 function Home() {
   const { t } = useTranslation("common");
   const [title, setTitle] = useState(true);
+  const dispatch = useDispatch();
+  const ref = useCallback(
+    (ref) => {
+      if (ref !== null) {
+        dispatch(setHome(ref));
+      }
+    },
+    [dispatch]
+  );
 
   return (
     <section
       id="home"
-      className="flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-6 px-6 lg:p-20 justify-items-center items-center h-screen"
+      ref={ref}
+      className="flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-6 px-2 lg:p-20 justify-items-center items-center h-screen"
     >
       <div className="">
-        <p className="code">{"<Typewriter"}</p>
-        <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col">
-          <p className="">{t("hello")}</p>
-          <p className="">{t("myName")}</p>
-          {/* <Typewriter
+        <div className="text-xl lg:text-6xl dark:text-[#11c8fe] font-semibold font-mono flex flex-col items-center">
+          <Typewriter
             onInit={(typewriter) => {
               typewriter
                 .typeString(t("hello"))
@@ -28,7 +39,7 @@ function Home() {
                 })
                 .start();
             }}
-          /> */}
+          />
         </div>
         <div className={`pt-6 text-lg lg:text-3xl font-medium`}>
           <p className="">{t("fullstack")}</p>
@@ -36,8 +47,7 @@ function Home() {
         </div>
       </div>
       <div className="">
-        <p className="code">{"<Image"}</p>
-        <div className="relative w-48 h-48 lg:w-64 lg:h-64">
+        <div className="relative mb-2 w-48 h-48 lg:w-64 lg:h-64">
           <Image
             className=" border rounded-lg shadow-lg"
             src="/yoyo.jpg"
@@ -48,7 +58,7 @@ function Home() {
         </div>
       </div>
       <div className=" lg:px-60 lg:py-20 col-span-2 self-stretch justify-self-stretch">
-        <p className="code">{"<h3"}</p>
+        <Terminal />
         <h3 className="lg:text-3xl text-lg lg:mb-6 font-bold dark:text-[#11c8fe] border-b-4 pb-2 w-fit border-[#11c8fe] shadow-sm">
           {t("about")}
         </h3>
