@@ -1,18 +1,24 @@
 import { useTranslation } from "next-i18next";
-import React, { useCallback, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setContact } from "../app/slices/ScrollSlice";
+import { setContact, setEducation } from "../app/slices/ScrollSlice";
+
+import Script from "next/script";
+import axios from "axios";
+import CustomizedSnackbars from "../components/Snackbar";
 
 function Communication() {
   const { t } = useTranslation("common");
+  const dispatch = useDispatch();
 
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [subject, setSubject] = useState(null);
   const [message, setMessage] = useState(null);
 
-  const dispatch = useDispatch();
+  const [processing, setProcessing] = useState(false);
+  const [open, setOpen] = React.useState(false);
+
   const ref = useCallback(
     (ref) => {
       if (ref !== null) {
@@ -21,6 +27,17 @@ function Communication() {
     },
     [dispatch]
   );
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setProcessing(true);
+    await axios.post("/api/submitMessage", { name, email, subject, message });
+    setProcessing(false);
+    setSubject("");
+    setMessage("");
+    setOpen(true);
+  };
 
   return (
     <section
@@ -34,51 +51,57 @@ function Communication() {
       <div className="font-bold text-lg flex items-center h-full">
         <form
           className="flex flex-col space-y-4 w-full max-w-lg "
-          method="post"
-          action="/api/submitMessage"
-          encType="multipart/form-data"
-          onSubmit={(event) => {
-            if (grecaptcha.getResponse() === "") {
-              event.preventDefault();
-              alert("Please click <I'm not a robot> before sending the job");
-            }
-          }}
+          onSubmit={handleSubmit}
         >
           <input
+            type="text"
+            id="name"
+            value={name}
+            required
             className="input"
             onChange={(event) => setName(event.target.value)}
             placeholder={t("name")}
           />
           <input
+            id="email"
+            value={email}
+            required
             className="input"
             onChange={(event) => setEmail(event.target.value)}
             type="email"
             placeholder={t("email")}
           />
           <input
+            type="text"
+            id="subject"
+            required
             className="input"
+            value={subject}
             onChange={(event) => setSubject(event.target.value)}
             placeholder={t("subject")}
           />
           <textarea
             type="text"
+            id="message"
+            required
             className="input overflow-x-clip h-48"
+            value={message}
             onChange={(event) => setMessage(event.target.value)}
             rows="5"
             cols="30"
             placeholder={t("message")}
           />
-          <div className="flex justify-center">
-            <ReCAPTCHA size="normal" sitekey={process.env.SITE_KEY} />
-          </div>
+          <div className="flex justify-center"></div>
           <button
             className="dark:bg-[#1f2937] bg-[#d1d5db] p-2 font-semibold rounded-md shadow-md border"
             type="submit"
+            disabled={!name || !email || !subject || !message || processing}
           >
             {t("Submit")}
           </button>
         </form>
       </div>
+      <CustomizedSnackbars open={open} setOpen={setOpen} />
     </section>
   );
 }

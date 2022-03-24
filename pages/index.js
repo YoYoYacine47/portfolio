@@ -8,10 +8,13 @@ import Education from "../components/Education";
 import Portfolio from "../components/Portfolio";
 import Communication from "../components/Communication";
 import Skills from "../components/Skills";
+import Script from "next/script";
 
 export default function Index() {
   const router = useRouter();
   const [der, setDer] = useState("ltr");
+  const site_key = process.env.SITE_KEY;
+
   useEffect(() => {
     router.locale === "ar" ? setDer("rtl") : setDer("ltr");
   }, [router.locale]);
@@ -27,6 +30,9 @@ export default function Index() {
         <meta name="description" content="created by RAMDANE YACINE" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${site_key}`}
+      />
 
       <main className="flex">
         <Nav />

@@ -1,14 +1,30 @@
-import validateCaptcha from "./captcha";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import db from "../../firebase";
 
-export default async function submitMessage(req, res) {
-  const { body } = req;
-  const { captcha } = body;
-  console.log(captcha);
-  console.log(body);
+const register = async (req, res) => {
+  const SECRET_KEY = process.env.RECAPTCHA_SECRET;
 
-  if (!(await validateCaptcha(req.body.captcha))) {
-    return res.redirect(`/captcha`);
+  const { name, email, subject, message, recaptchaResponse } = req.body;
+
+  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${recaptchaResponse}`;
+
+  try {
+    const recaptchaRes = await fetch(verifyUrl, { method: "POST" });
+
+    const recaptchaJson = await recaptchaRes.json();
+    const data = {
+      name,
+      email,
+      subject,
+      message,
+      timestamp: serverTimestamp(),
+    };
+    await addDoc(collection(db, "messages"), data);
+
+    res.status(200).json();
+  } catch (e) {
+    res.status(400).json(e.error);
   }
-  delete req.body["g-recaptcha-response"];
-  console.log("recaptcha valid!!");
-}
+};
+
+export default register;

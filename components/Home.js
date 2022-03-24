@@ -65,7 +65,7 @@ function Home() {
             title="Click To Copy"
           >
             <p
-              className="flex items-center text-lg cursor-pointer"
+              className="flex items-center text-lg cursor-pointer "
               onClick={() => {
                 navigator.clipboard.writeText("ramdaneyacine31@gmail.com");
               }}
