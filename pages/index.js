@@ -30,9 +30,6 @@ export default function Index() {
         <meta name="description" content="created by RAMDANE YACINE" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${site_key}`}
-      />
 
       <main className="flex">
         <Nav />
