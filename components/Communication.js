@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setContact, setEducation } from "../app/slices/ScrollSlice";
 
-import Script from "next/script";
 import axios from "axios";
 import CustomizedSnackbars from "../components/Snackbar";
 
