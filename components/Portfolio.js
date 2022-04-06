@@ -17,7 +17,7 @@ function Portfolio() {
     <section
       id="portfolio"
       ref={ref}
-      className=" flex flex-col items-center lg:h-screen"
+      className=" flex flex-col items-center xl:h-screen"
     >
       <h2 className="text-3xl lg:text-6xl font-bold text-[#11c8fe] p-2 lg:p-8">
         Portfolio
